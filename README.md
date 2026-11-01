@@ -7,12 +7,6 @@ A personal expense tracker with bank-statement and SMS import, automatic categor
 
 > The backend runs on a free hosting tier that sleeps when idle, so the first load after a quiet period can take about a minute.
 
-<p align="center">
-  <img src="docs/screenshots/transactions.png" width="32%" alt="Transactions list" />
-  <img src="docs/screenshots/import.png" width="32%" alt="CSV and SMS import" />
-  <img src="docs/screenshots/dashboard.png" width="32%" alt="Dashboard" />
-</p>
-
 ## Try it
 
 1. Open the [live demo](https://spendique.netlify.app/) and sign up with any email (password of 8+ characters).
@@ -157,7 +151,6 @@ flutter run -d chrome --dart-define=API_URL=https://your-backend.example.com
 
 ## Roadmap
 
-- [ ] Automated tests (pytest) and CI/CD with GitHub Actions
 - [ ] Budgets and spending alerts
 - [ ] "Ask your money" chat over your own data
 - [ ] Privacy layer in front of the LLM (PII redaction, query guard, audit log)
