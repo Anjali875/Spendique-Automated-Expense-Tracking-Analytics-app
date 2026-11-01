@@ -157,7 +157,6 @@ flutter run -d chrome --dart-define=API_URL=https://your-backend.example.com
 
 ## Roadmap
 
-- [ ] Automated tests (pytest) and CI/CD with GitHub Actions
 - [ ] Budgets and spending alerts
 - [ ] "Ask your money" chat over your own data
 - [ ] Privacy layer in front of the LLM (PII redaction, query guard, audit log)
