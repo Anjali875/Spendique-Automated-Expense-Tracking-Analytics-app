@@ -27,3 +27,30 @@ class TransactionOut(TransactionCreate):
     model_config = ConfigDict(from_attributes=True)
 
     id: int
+
+class SmsImportRequest(BaseModel):
+    text: str = Field(min_length=1, max_length=50_000)
+
+
+class ImportResult(BaseModel):
+    imported: int
+    duplicates: int
+    skipped: int
+
+class LabelTotal(BaseModel):
+    label: str
+    total: float
+
+
+class MonthTotal(BaseModel):
+    month: str  # "2026-11"
+    income: float
+    expense: float
+
+
+class InsightsOut(BaseModel):
+    income_30d: float
+    expense_30d: float
+    by_category: list[LabelTotal]
+    top_merchants: list[LabelTotal]
+    monthly: list[MonthTotal]

@@ -26,8 +26,8 @@ final tokenStoreProvider = Provider((ref) => TokenStore());
 final dioProvider = Provider<Dio>((ref) {
   final dio = Dio(BaseOptions(
     baseUrl: baseUrl,
-    connectTimeout: const Duration(seconds: 10),
-    receiveTimeout: const Duration(seconds: 10),
+    connectTimeout: const Duration(seconds: 60),
+    receiveTimeout: const Duration(seconds: 60),
   ));
   final store = ref.read(tokenStoreProvider);
   dio.interceptors.add(InterceptorsWrapper(
