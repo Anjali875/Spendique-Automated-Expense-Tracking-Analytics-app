@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 
@@ -51,5 +52,19 @@ class TransactionsNotifier extends AutoDisposeAsyncNotifier<List<Transaction>> {
       state = AsyncData(previous); // roll back
       rethrow;
     }
+  }
+    Future<ImportResult> importCsv(List<int> bytes, String filename) async {
+    final form = FormData.fromMap({
+      'file': MultipartFile.fromBytes(bytes, filename: filename),
+    });
+    final res = await ref.read(dioProvider).post('/import/csv', data: form);
+    state = AsyncData(await _fetch());
+    return ImportResult.fromJson(res.data as Map<String, dynamic>);
+  }
+
+  Future<ImportResult> importSms(String text) async {
+    final res = await ref.read(dioProvider).post('/import/sms', data: {'text': text});
+    state = AsyncData(await _fetch());
+    return ImportResult.fromJson(res.data as Map<String, dynamic>);
   }
 }

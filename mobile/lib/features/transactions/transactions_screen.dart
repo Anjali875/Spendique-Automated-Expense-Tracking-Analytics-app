@@ -1,3 +1,4 @@
+import 'import_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
@@ -21,12 +22,20 @@ class TransactionsScreen extends ConsumerWidget {
       appBar: AppBar(
         title: const Text('Transactions'),
         actions: [
-          IconButton(
-            icon: const Icon(Icons.logout),
-            tooltip: 'Log out',
-            onPressed: () => ref.read(authProvider.notifier).logout(),
-          ),
-        ],
+  IconButton(
+    icon: const Icon(Icons.upload_file),
+    tooltip: 'Import',
+    onPressed: () => Navigator.push(
+      context,
+      MaterialPageRoute(builder: (_) => const ImportScreen()),
+    ),
+  ),
+  IconButton(
+    icon: const Icon(Icons.logout),
+    tooltip: 'Log out',
+    onPressed: () => ref.read(authProvider.notifier).logout(),
+  ),
+],
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () => Navigator.push(

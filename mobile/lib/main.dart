@@ -1,3 +1,4 @@
+import 'features/home/home_shell.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -28,7 +29,7 @@ class AuthGate extends ConsumerWidget {
     return ref.watch(authProvider).when(
           loading: () => const Scaffold(body: Center(child: CircularProgressIndicator())),
           error: (_, __) => const LoginScreen(),
-          data: (loggedIn) => loggedIn ? const TransactionsScreen() : const LoginScreen(),
+          data: (loggedIn) => loggedIn ? const HomeShell() : const LoginScreen(),
         );
   }
 }

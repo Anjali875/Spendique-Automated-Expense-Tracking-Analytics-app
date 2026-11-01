@@ -30,3 +30,14 @@ class Transaction {
         txnDate: DateTime.parse(j['txn_date'] as String),
       );
 }
+
+class ImportResult {
+  final int imported, duplicates, skipped;
+  const ImportResult(this.imported, this.duplicates, this.skipped);
+
+  factory ImportResult.fromJson(Map<String, dynamic> j) =>
+      ImportResult(j['imported'] as int, j['duplicates'] as int, j['skipped'] as int);
+
+  String get summary =>
+      '$imported imported • $duplicates duplicates ignored • $skipped skipped';
+}
